@@ -1,0 +1,18 @@
+{
+  "name": "project_robotics_site",
+  "version": "1.0.0",
+  "description": "npm install -> npm run dev",
+  "scripts": {
+    "install:back-end": "cd back-end/ && npm install",
+    "install:front-end": "cd front-end/ && npm install",
+    "postinstall": "npm run install:back-end && npm run install:front-end",
+    "dev": "concurrently -n \"Front-end,Back-end\" -c \"cyan,red\" \"npm run dev --prefix front-end\" \"npm run dev --prefix back-end\"",
+    "poststart": "cd ./back-end && npx tsc",
+    "start": "cd ./front-end && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
